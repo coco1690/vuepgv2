@@ -1,27 +1,27 @@
 <template>
     <div id="tabla" style="margin-left: -5px;"  >
         <div class="table-responsive-xs " 
-            v-for="(idmatches,index) in idmatch" 
-            :key="idmatches, index"
+            v-for="(idmatches,index, value) in idmatch" 
+            :key="idmatches, index, value"
             >
             
             <div class="panel-group">
                 <div class="panel-default">
                     <div class="center panel-heading">
-                        <a class="nav-link active text-white" data-toggle="collapse" :href="'#collapse'+ index">
+                        <a class="nav-link active text-white" data-toggle="collapse" :href="'#collapse'+ value">
                         
-                            {{idmatches.sportName}} : {{idmatches.name}}   <i class="flecha fa fa-angle-down rotate-icon "></i>
+                          {{idmatches.name}}   <i class="flecha fa fa-angle-down rotate-icon "></i>
                         </a>
                     </div>
-                    <div  :id="'collapse'+ index" class="panel-collapse collapse">
+                    <div  :id="'collapse'+value" class="panel-collapse collapse">
                    <ul class="list-group ">
                                 <table class="text-white table-hover">
                                     <!-- <button @click="c">mostar/ocultar</button> -->
                                     <thead >
                                         <tr style=" width: 100%">
-                                            <th class="relojcolumn" ><i class=" rlj fa fa-clock-o"></i> </th>
-                                            <th id="lig">{{idmatches.sportName}} : {{idmatches.name}}</th>
-                                            <th style="word-spacing: 24px;">1 X 2</th>
+                                            <!-- <th class="relojcolumn" ><i class=" rlj fa fa-clock-o"></i> </th>
+                                            <th id="lig">{{idmatches.sportName}} : {{idmatches.name}}</th> -->
+                                            <!-- <th style="word-spacing: 24px;">1 X 2</th> -->
 
                                             <!-- <th style="word-spacing: 10px; ">UN OV T</th>
                                             <th style="word-spacing: 11px; ">1X 12 2X</th>
@@ -38,8 +38,10 @@
                         :key="e,i">
                                         <tr>
                                         <td >
-                                        
-                                            <small id="fech">{{fecha(e.date)}}</small>
+                                            
+                                            <div><small id="fech">{{fecha(e.date)}}</small></div>
+                                            <div><small>{{hora(e.fulldate)}}</small></div>
+                                            
                                             
                                         </td>
                                         <td>
@@ -57,11 +59,13 @@
                                            <td> 
                                            
                                                
-                                        <div class="row" style="margin-left:-12px">
-                                            <div class=" botn btns btns:hover " style="font-size: 10px;">{{e.data[19992].o1}}</div>
-                                            <div class=" botn btns btns:hover " style=" font-size: 10px;">{{e.data[19992].o2}} </div>
-                                            <div class=" botn btns btns:hover " style=" font-size: 10px;"></div>                                              
-                                        </div>
+                                        <!-- <div class="row" style="margin-left:-12px"> -->
+                           <div> 1<div class=" botn btns btns:hover " style="font-size: 10px;">{{e.data[19992].o1}}</div></div>
+
+                           <div> X<div class=" botn btns btns:hover " style=" font-size: 10px;">{{e.data[19992].o2}}</div></div> 
+
+                           <div> 2<div class=" botn btns btns:hover " style=" font-size: 10px;">{{e.data[19992].o2}} </div></div>                                          
+                                        <!-- </div> -->
                                             </td>
                                         
                                     
@@ -93,14 +97,15 @@
 
 <script>
 import axios from "axios";
-import moment from "moment"
+import moment from "moment";
+// import moment from "moment-timezone";
 
 
 export default {
     
      mounted() {
     axios
-      .get("http://91.121.116.131/geek/api/list/model/siguiente")
+      .get("http://91.121.116.131/8abet/admin/api/match")
       .then(response => {
         this.idmatch = response.data;
       });
@@ -124,9 +129,10 @@ export default {
       },
 
       hora:function(e) {
-          return moment(e).format('h:mm a');
-          
+          return moment(e).format('LT');
+        //   moment(e).format('LT');   
       },
+
 
     //   c:function ( ){
           

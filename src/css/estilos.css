@@ -92,13 +92,22 @@ html, body{
   /* outline: 1px solid green; */
  /* box-shadow: 3px 0 rgba(217, 240, 12, 0.857) inset; */
  margin-bottom: 5px;
- padding-left: 1.5em;
+ padding-left: -0.5em;
  /* -webkit-transition:all 1s;
  -moz-transition:all 1s;
  -ms-transition:all 1s;
  -o-transition:all 1s;
  transition:all 1s; */
 
+}
+.cont-deporte{
+  margin-left: 31px;
+    margin-right: -5px;
+}
+.name-sport{
+    margin-left: 8px;
+    margin-bottom: 104px;
+    display: initial;
 }
 .limovil{
 

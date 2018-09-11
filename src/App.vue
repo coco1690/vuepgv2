@@ -44,7 +44,7 @@
                 <tabla/>
            </div>
 
-             <div ><ticket/></div> 
+             <!-- <div ><ticket/></div>  -->
         </div>
 
     

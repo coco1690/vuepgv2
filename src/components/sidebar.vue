@@ -8,10 +8,17 @@
 
 <div class="liid panel-group">
   <div class="panel panel-default">
-    <div class="panel-heading ">
+    <div class="cont-deporte panel-heading ">
         <a class="center2 center2:active nav-link active text-white btn:hover " style=" margin-left: -31px" data-toggle="collapse" :href="'#collapse'+ idpais.name">
-             <img class="icon" :src="getImgUrl(id)" v-bind:alt="id">
-                &nbsp;&nbsp;&nbsp; {{idpais.name}} <i class="flecha fa fa-angle-down rotate-icon "></i>
+            
+             <div>
+                <img class="icon" :src="getImgUrl(id)" v-bind:alt="id">
+                <div class="name-sport">
+                 {{idpais.name}}
+                 <i class="flecha fa fa-angle-down rotate-icon ">
+                     </i>
+                </div>
+            </div>
         </a>
     </div>
 
@@ -26,7 +33,7 @@
     <div  :id="'collapse'+ idpais.name " class="panel-collapse collapse">
       <ul class="list-group">
         <li class="active  paisess" style=" list-style: none;">
-            <a class="nav-link active text-white" data-toggle="collapse"  :href="'#collapse2'+ idpais.name">
+            <a class="nav-link active text-white" data-toggle="collapse"  :href="'#collapse2'+ index1">
                  <i :class="'ficon-inline f-' + index1">
                  </i>
                   <i class="flecha fa fa-angle-down rotate-icon ">
@@ -38,29 +45,33 @@
          
     </div>
 
-         <!-- <div
-        v-for="(idlig,ind) in idliga" 
-        :key="idlig, ind"
+         <div
+         v-if="paises.leagues"
+       v-for="(liga,idliga) in paises.leagues"
+       :key="liga,idliga"
             >
                
-    <div  :id="'collapse2'+idlig.sportName"  class="panel-collapse collapse" >
+    <div  :id="'collapse2'+index1"  class="panel-collapse collapse" >
       <ul class="list-group">
         <li class="active  paisess" style=" list-style: none;">
-            <a class="nav-link active text-white" href=""></a>
+            <a class="nav-link active text-white" :href="'./tabla.vue'+ liga.id">
+                 {{liga.name}}
+            </a>
+           
         </li> 
         </ul>
         </div>
       
      
-    </div> -->
     </div>
-  <!-- </div> -->
+    </div>
+  </div>
 </div>
         
          </div> 
         </div>
 
-    </div>
+    <!-- </div> -->
 
 </template>
 
@@ -93,17 +104,17 @@ export default {
 
 
     mounted(){
-        axios.get('http://91.121.116.131/geek/api/list/model/leftpanel/')
+        axios.get('http://91.121.116.131/8abet/admin/api/menu')
         .then(response =>{
             this.deportes = response.data
            
         })
 
-        axios
-      .get("http://91.121.116.131/geek/api/list/model/siguiente")
-      .then(response => {
-        this.idliga = response.data;
-      });
+    //     axios
+    //   .get("http://91.121.116.131/gecko/api/match")
+    //   .then(response => {
+    //     this.idliga = response.data;
+    //   });
     },
        
    }
