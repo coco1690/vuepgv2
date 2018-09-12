@@ -22,7 +22,7 @@
             :key="e,i">
                 <div id="cabezeramovil row">
                     <div class="col-12" id="lig">
-                        {{e.name}} -  <small id="fech"> {{fecha(e.date)}} {{hora(e.fulldate)}}</small>
+                        {{e.name}} -  <small id="fech">{{dia(e.date)}} / {{fecha(e.date)}} {{hora(e.timestamp * 1000)}}</small>
  
                         </div>
 
@@ -99,7 +99,7 @@ export default {
       });
   },
 
-  name: "tabla",
+  name: "tablamovil",
 
   data() {
     return {
@@ -120,7 +120,15 @@ export default {
           return moment(e).format('LT');
         //   moment(e).format('LT');   
       },
-
+      dia:function(e) {
+          return moment(e).format('dddd')
+        //   moment(e).format('LT');   
+      },
+      hoy:function(e) {
+          return moment().add('LT').format('LT');
+        //   moment(e).format('LT');   
+      },
+    
 
     //   c:function ( ){
           

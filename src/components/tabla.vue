@@ -41,7 +41,7 @@
                                        <th>
                                         <td > 
                                             <div><small id="fech">{{fecha(e.date)}}</small></div>
-                                            <div style="width: 55px" ><small>{{hora(e.fulldate)}}</small></div>
+                                            <div style="width: 55px" ><small>{{hora(e.timestamp * 1000)}}</small></div>
                                         </td>
                                         </th>
                                         <td>
