@@ -15,43 +15,43 @@
                     </div>
                     <div  :id="'collapse'+value" class="panel-collapse collapse">
                    <ul class="list-group ">
-                                <table class="text-white table-hover">
+                                <table class=" text-white table-hover col-sm-12 col-md-12 col-lg-12">
                                     <!-- <button @click="c">mostar/ocultar</button> -->
                                     <thead >
-                                        <tr style=" width: 100%">
-                                            <!-- <th class="relojcolumn" ><i class=" rlj fa fa-clock-o"></i> </th>
-                                            <th id="lig">{{idmatches.sportName}} : {{idmatches.name}}</th> -->
-                                            <!-- <th style="word-spacing: 24px;">1 X 2</th> -->
+                                        <tr id="cabezera">
+                                            <th scope="col" class="relojcolumn" ><i class=" rlj fa fa-clock-o"></i> </th>
+                                            <th scope="col" id="lig">{{idmatches.name}}</th>
+                                            <th scope="col" style="word-spacing: 24px;">1 X 2</th>
 
-                                            <!-- <th style="word-spacing: 10px; ">UN OV T</th>
-                                            <th style="word-spacing: 11px; ">1X 12 2X</th>
-                                            <th style="word-spacing: 5px; ">GG NG</th>
-                                            <th >OTHERS</th> -->
+                                            <th scope="col" style="word-spacing: 10px; ">UN OV T</th>
+                                            <th scope="col" style="word-spacing: 11px; ">1X 12 2X</th>
+                                            <th scope="col" style="word-spacing: 5px; ">GG NG</th>
+                                            <th scope="col">OTHERS</th>
                                         </tr>
                                     </thead>
                                  
                      
                        
-                        <tbody style=" width: 100%;"
+                        <tbody>
+                        <tr  style=" width: 100%;"
                         v-if="idmatches.matches"
                         v-for="(e,i) in idmatches.matches"
                         :key="e,i">
-                                        <tr>
-                                        <td >
-                                            
+                        
+                                       <th>
+                                        <td > 
                                             <div><small id="fech">{{fecha(e.date)}}</small></div>
-                                            <div><small>{{hora(e.fulldate)}}</small></div>
-                                            
-                                            
+                                            <div style="width: 55px" ><small>{{hora(e.fulldate)}}</small></div>
                                         </td>
+                                        </th>
                                         <td>
                                            
                                         <small id="lig">{{e.name}}</small> 
                                         </td>
                                      
-                                        <th
-                                         v-if="e.data[19992]"
-                                           v-for="(cuota,index2) in e.data[19992]"
+                                        <th scope="row"
+                                         v-if="e.data"
+                                           v-for="(cuota,index2) in e.data"
                                            :key="cuota, index2">
                                         
                                        
@@ -60,11 +60,11 @@
                                            
                                                
                                         <!-- <div class="row" style="margin-left:-12px"> -->
-                           <div> 1<div class=" botn btns btns:hover " style="font-size: 10px;">{{e.data[19992].o1}}</div></div>
+                           <div class=" botn btns btns:hover " style="font-size: 10px;">{{cuota.o1}}</div>
 
-                           <div> X<div class=" botn btns btns:hover " style=" font-size: 10px;">{{e.data[19992].o2}}</div></div> 
+                           <div class=" botn btns btns:hover " style=" font-size: 10px;">{{cuota.o2}}</div> 
 
-                           <div> 2<div class=" botn btns btns:hover " style=" font-size: 10px;">{{e.data[19992].o2}} </div></div>                                          
+                           <div class=" botn btns btns:hover " style=" font-size: 10px;">{{cuota.o3}} </div>                                         
                                         <!-- </div> -->
                                             </td>
                                         
@@ -72,9 +72,7 @@
                                        
                                         </th> 
                                         </tr>
-                                           <!-- <div v-hide>
-                                                   {{index2}}
-                                                 </div> -->
+                                         
                          </tbody>           
                   
                     

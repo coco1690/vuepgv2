@@ -4,6 +4,8 @@
   <div id="app">
    <div class="l container">
 
+    
+
         <div class="row">
             <div class="homelogo col-12 col-sm-12 col-md-12 col-lg-6 justify-content-center">
               
@@ -40,9 +42,14 @@
             </div>
          
                 <carrusel class="col-sm-12 col-md-10 col-lg-10 d-none d-md-block"/>
-            <div class="col-sm-12 col-md-10 col-lg-10 offset-md-2">
+            <div class="col-sm-12 col-md-10 col-lg-10 offset-md-2 d-none d-md-block ">
                 <tabla/>
            </div>
+            <div class="col-12 col-sm-12 col-md-2 d-block d-md-none d-inline text-white">
+           
+            <tablamovil/>
+             
+            </div>
 
              <!-- <div ><ticket/></div>  -->
         </div>
@@ -71,6 +78,7 @@ import Sidebarmovil from "./components/sidebarmovil";
 import Ticket from "./components/ticket";
 import Carrusel from "./components/carrusel";
 import Tabla from "./components/tabla";
+import Tablamovil from "./components/tablamovil";
 
 export default {
   name: 'app',
@@ -85,6 +93,7 @@ export default {
      Navv,
      Sidebar,
      Sidebarmovil,
+     Tablamovil,
      Tabla,
      Ticket,
      Carrusel,
@@ -94,7 +103,6 @@ export default {
 </script>
  <style>
        
-     
 
         .centarpanel{
           min-height: 30rem;
