@@ -178,14 +178,27 @@ html, body{
     border-bottom-left-radius: 10px;
     width: 100px;
     margin-right: -11px;
-    text-align: center
+    text-align: center;
 }
+.btnactive1{
+    border: solid 1px #73737254;
+    margin-bottom: -1px;
+    margin-top: -1px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 100px;
+    margin-right: -11px;
+    text-align: center;
+    background-color: #a61f67;
+    color: #000;
+}
+
 .btnx{
     border: solid 1px #73737254;
     margin-bottom: -1px;
     margin-top: -1px;
     width: 100px;
-    text-align: center
+    text-align: center;
 }
 .btn2{
     border: solid 1px #73737254;
@@ -195,7 +208,19 @@ html, body{
     border-bottom-right-radius: 10px;
     width: 100px;
     margin-left: -11px;
-    text-align: center
+    text-align: center;
+}
+.btnactive2{
+    border: solid 1px #73737254;
+    margin-bottom: -1px;
+    margin-top: -1px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100px;
+    margin-left: -11px;
+    text-align: center;
+    background-color: #a61f67;
+    color: #000;
 }
 #btncuota{
   margin-bottom: 2px;

@@ -54,7 +54,7 @@
     <div  :id="'collapse2'+index1"  class="panel-collapse collapse" >
       <ul class="list-group">
         <li class="active  paisess" style=" list-style: none;">
-            <a class="nav-link active text-white" :href="'./tabla.vue'+ liga.id">
+            <a class="nav-link active text-white">
                  {{liga.name}}
             </a>
            

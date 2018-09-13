@@ -1,6 +1,6 @@
 <template>
     <div id="tablamovil" style="margin-left: -5px;"  >
-        <div class="table-responsive-xs " 
+        <div 
             v-for="(idmatches,index, value) in idmatch" 
             :key="idmatches, index, value"
             >
@@ -15,6 +15,7 @@
                     </div>
                     <div  :id="'collapse'+value" class="panel-collapse collapse">
                    <ul class="list-group ">
+
             <div class="container"
            
             v-if="idmatches.matches"
@@ -22,39 +23,69 @@
             :key="e,i">
                 <div id="cabezeramovil row">
                     <div class="col-12" id="lig">
-                        {{e.name}} -  <small id="fech">{{dia(e.date)}} / {{fecha(e.date)}} {{hora(e.timestamp * 1000)}}</small>
+                        {{e.name}} -  <small id="fech">{{dia(e.date)}} / {{fecha(e.date)}} / {{hora(e.timestamp * 1000)}}</small>
  
                         </div>
 
                       </div>
-                             
-                             <div class="cabcontenedor">     
+                      
+      
+
+            <div class="panel-group">
+                <div class="panel-default">
+                    <div class="center panel-heading">
+                        <a class="nav-link active text-white" data-toggle="collapse" :href="'#collapse'+ i">
+                        
+                        Ganador del partido
+                          
+                        </a>
+                    </div>
+                    <div  :id="'collapse'+ i" class="panel-collapse collapse">
+                   <ul class="list-group ">
+
+                       <div class="cabcontenedor">     
                               
                             <div class="cabcuotas">      
-                          <div class=" btn1 btns " style="font-size: 10px;">  <small>1</small>
+                          <div  @click="botonactive" v-bind:class="[isActive ? activeClass : errorClass]" style="font-size: 10px;">  <small>1</small>
                           <div id="btncuota"> {{e.data[19992].o1}}</div></div>
 
                            <div class="btnx  btns " style=" font-size: 10px;"> <small>X</small>
                                <div id="btncuota">{{e.data[19992].o2}}</div></div>
 
-                          <div class="btn2  btns " style=" font-size: 10px;"> <small>2</small>
+                          <div @click="botonactive" v-bind:class="[isActive ? activeClass2 : stopClass2]" style=" font-size: 10px;"> <small>2</small>
                               <div id="btncuota">{{e.data[19992].o3}} </div></div> 
                            </div>   
-                           <!-- <th
-                                 scope="row"
-                                 v-if="e.data[139992]"
-                                 v-for="(cuota,index2) in e.data[139992]"
-                                 :key="cuota, index2">
-                                               
-                                         
-                                     
-                          <td> <div class=" botn btns btns:hover " style="font-size: 10px;">{{e.data[139992].o1}}</div></td>
+                        </div>  
+      
+        
+         
+    
 
-                          <td> <div class=" botn btns btns:hover " style=" font-size: 10px;">{{e.data[139992].o2}}</div></td> 
+                </ul>
+                </div>
+                </div>  
+                </div>   
 
-                           <td><div class=" botn btns btns:hover " style=" font-size: 10px;">{{e.data[139992].o3}} </div></td>                                         
-                                       
-                           </th>                 -->
+               
+                <div class="cabcontenedor">  
+                    <div class="cabcuotas">
+                      
+                          
+                     
+          
+                          <div class=" btn1 btns " style="font-size: 10px;">  <small>GG</small>
+                          <div id="btncuota"> {{e.data[19992].o1}}</div></div>
+
+                           <div class="btnx  btns  " style=" font-size: 10px;"> <small></small>
+                               <div id="btncuota"></div></div>
+
+                          <div class="btn2  btns " style=" font-size: 10px;"> <small>NG</small>
+                              <div id="btncuota"> </div>{{e.data[19992].o2}}</div>  
+                    
+                    
+                    </div>
+                    </div>   
+
                                                                          
                                            
 
@@ -68,7 +99,7 @@
                                             <th scope="col" style="word-spacing: 5px; ">GG NG</th> -->
                                             <!-- <th scope="col">OTHERS</th> -->
 
-                        </div>  
+                        
                             </div>
                         
                         </ul>
@@ -86,9 +117,10 @@
 <script>
 import axios from "axios";
 import moment from "moment";
+
 // import moment from "moment-timezone";
 
-
+moment.locale('es');
 export default {
     
      mounted() {
@@ -104,32 +136,43 @@ export default {
   data() {
     return {
 
-      mostrar:false,
-   
-      idmatch: [],
+    //   mostrar:false,
+       isActive: true,
+       activeClass:'btn1 btns',
+       errorClass:'btnactive1 btns',
+       activeClass2:'btn2 btns',
+       stopClass2:'btnactive2 btns',
+
+       idmatch: [],
       
     };
   },
 
+  
   methods: {
       fecha:function(d) {
           return moment(d).format("MMM D");                
       },
 
       hora:function(e) {
-          return moment(e).format('LT');
+         
+          return moment(e).format('LT')
         //   moment(e).format('LT');   
       },
       dia:function(e) {
+          
           return moment(e).format('dddd')
         //   moment(e).format('LT');   
       },
       hoy:function(e) {
-          return moment().add('LT').format('LT');
+          return moment().startOf('').fromNow();
         //   moment(e).format('LT');   
       },
-    
-
+    botonactive:function() {
+        this.isActive =!this.isActive 
+        
+    }
+     
     //   c:function ( ){
           
     //     this.mostrar = !this.mostrar
