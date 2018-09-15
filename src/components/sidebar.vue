@@ -3,7 +3,8 @@
         <!-- <div v-for="idd in id" :key=></div> -->
         <div class="menu"
             v-for="(idpais,id) in deportes" 
-            :key="idpais, id">
+            :id="idpais"
+            :key="id">
        
 
 <div class="liid panel-group">
@@ -24,17 +25,18 @@
 
     <div
        v-if="idpais.countries"
-       v-for="(paises,index1) in idpais.countries"
-       :key="paises,index1"
+       v-for="(paises,index) in idpais.countries"
+       :key="index"
+       :paises="paises"
        >
-       
+    
       
        
     <div  :id="'collapse'+ idpais.name " class="panel-collapse collapse">
       <ul class="list-group">
         <li class="active  paisess" style=" list-style: none;">
-            <a class="nav-link active text-white" data-toggle="collapse"  :href="'#collapse2'+ index1">
-                 <i :class="'ficon-inline f-' + index1">
+            <a class="nav-link active text-white" data-toggle="collapse"  :href="'#collapse2'+ index">
+                 <i :class="'ficon-inline f-' + index">
                  </i>
                   <i class="flecha fa fa-angle-down rotate-icon ">
                  </i> 
@@ -47,11 +49,11 @@
 
          <div
          v-if="paises.leagues"
-       v-for="(liga,idliga) in paises.leagues"
-       :key="liga,idliga"
-            >
+       v-for="(liga,index1) in paises.leagues"
+       :key="index1"
+        :liga="liga"   >
                
-    <div  :id="'collapse2'+index1"  class="panel-collapse collapse" >
+    <div  :id="'collapse2'+index"  class="panel-collapse collapse" >
       <ul class="list-group">
         <li class="active  paisess" style=" list-style: none;">
             <a class="nav-link active text-white">
@@ -88,7 +90,7 @@ export default {
         return{
             
             deportes:[],
-            idliga:{}
+            index:{}
         }
        
     },
@@ -113,7 +115,7 @@ export default {
     //     axios
     //   .get("http://91.121.116.131/gecko/api/match")
     //   .then(response => {
-    //     this.idliga = response.data;
+    //     this.index = response.data;
     //   });
     },
        

@@ -10,11 +10,12 @@ html, body{
   width: 100%;
   font-size: 14px;
   background: #0c0d11; /* Old browsers */
-  background: -moz-linear-gradient(top, rgb(76, 78, 78) 0%, rgb(3, 9, 14) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgb(76, 78, 78) 0%, rgb(3, 9, 14) 100%); /* Chrome10-25,Safari5.1-6 */
+  
+  background: -moz-linear-gradient(top, rgb(42, 42, 42) 0%, rgb(3, 9, 14) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgb(42, 42, 42) 0%, rgb(3, 9, 14) 100%); /* Chrome10-25,Safari5.1-6 */
   /* background: linear-gradient(to bottom, #6d0606 0%,#d41204da 70%); */
    /* background: linear-gradient(to bottom, #4d2b00 0%,#1c0404 80%); */
-   background: linear-gradient(to bottom, #04080ad2 20%,#051c1c 80%);
+   /* background: linear-gradient(to bottom, #04080ad2 20%,#051c1c 80%); */
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c2d38', endColorstr='#262e4a',GradientType=0 ); /* IE6-9 */
   background-attachment: fixed;
@@ -127,7 +128,7 @@ html, body{
   box-shadow: 15em 0  rgb(166, 31, 103)inset;
  
 }
-.center:active, .center:hover, .paisess:active, .paisess:hover,{
+.center:active, .center:hover, .paisess:active, .paisess:hover{
   background: rgb(32, 142, 102);
 }
 .btn1:hover, .btn1:active, .btnx:hover, .btnx:active, .btn2:hover, .btn2:active{
@@ -177,7 +178,7 @@ html, body{
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     width: 100px;
-    margin-right: -11px;
+    /* margin-right: -11px; */
     text-align: center;
 }
 .btnactive1{
@@ -187,7 +188,7 @@ html, body{
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     width: 100px;
-    margin-right: -11px;
+    /* margin-right: -11px; */
     text-align: center;
     background-color: #a61f67;
     color: #000;
@@ -222,7 +223,7 @@ html, body{
     background-color: #a61f67;
     color: #000;
 }
-#btncuota{
+.btncuota{
   margin-bottom: 2px;
   color: #FFD505;
 }
@@ -249,15 +250,19 @@ html, body{
 #fech{ 
   color: yellow;
 }
-#lig{
+.lig{
       text-align: center;
 }
 
 .cabezera{
    border: solid 1px;
 }
-#cabezeramovil{
+.cabezeramovil{
   display: inline-flex;
+}
+.cab-movil{
+    background: #007bff6b;
+   text-align: center;
 }
 .cabcuotas{
  display: inline-flex;
@@ -353,4 +358,15 @@ html, body{
 #toggle:checked ~ .button{
     transform: rotate(135deg);
     box-shadow: 0 0 0 0 transparent;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color:#7373720f;
+   border: solid 1px #73737254;
+}
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
+    color: #fff;
+    background-color: #a61f67;
+    border-color: #a61f67;
 }

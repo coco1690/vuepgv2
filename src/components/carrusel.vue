@@ -10,17 +10,20 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block carr" src="../assets/champ.jpg" alt="First slide">
+      <img class="d-block carr" src="../assets/1.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block carr" src="../assets/tour.jpg" alt="Second slide">
+      <img class="d-block carr" src="../assets/2.jpg" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block carr" src="../assets/lsur.jpg" alt="Third slide">
+      <img class="d-block carr" src="../assets/3.jpg" alt="Third slide">
     </div>
     
     <div class="carousel-item">
-      <img class="d-block carr" src="../assets/lcolom.jpg" alt="fourd slide">
+      <img class="d-block carr" src="../assets/4.jpg" alt="fourd slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block carr" src="../assets/5.jpg" alt="fourd slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

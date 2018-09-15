@@ -19,87 +19,150 @@
             <div class="container"
            
             v-if="idmatches.matches"
-            v-for="(e,i) in idmatches.matches"
-            :key="e,i">
-                <div id="cabezeramovil row">
-                    <div class="col-12" id="lig">
-                        {{e.name}} -  <small id="fech">{{dia(e.date)}} / {{fecha(e.date)}} / {{hora(e.timestamp * 1000)}}</small>
- 
+            v-for="(e,index1) in idmatches.matches"
+            :key="index1"
+            :e="e">
+            
+
+            <div class="cab-movil">
+                <div class="cabezeramovil row">
+                    <div class="col-12 lig">
+                        {{e.name}}  
+                        <div><small id="fech">{{dia(e.date)}} / {{fecha(e.date)}} / {{hora(e.timestamp * 1000)}}</small></div>
                         </div>
 
                       </div>
-                      
-      
+               </div>       
+        <!-- ==========================================1x2================================================== -->
 
             <div class="panel-group">
                 <div class="panel-default">
                     <div class="center panel-heading">
-                        <a class="nav-link active text-white" data-toggle="collapse" :href="'#collapse'+ i">
+                        <a class="nav-link active text-white" data-toggle="collapse" :href="'#collapse'+ index1">
                         
                         Ganador del partido
                           
                         </a>
                     </div>
-                    <div  :id="'collapse'+ i" class="panel-collapse collapse">
+                    <div  :id="'collapse'+ index1" class="panel-collapse collapse">
                    <ul class="list-group ">
 
-                       <div class="cabcontenedor">     
-                              
-                            <div class="cabcuotas">      
-                          <div  @click="botonactive" v-bind:class="[isActive ? activeClass : errorClass]" style="font-size: 10px;">  <small>1</small>
-                          <div id="btncuota"> {{e.data[19992].o1}}</div></div>
+                       <div class="cabcontenedor">    
+                         
+                    <div class="cabcuotas">   
+                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary btn1" style=" font-size: 10px;">
+                            <small>1</small>
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                             <div class="btncuota"> {{e.data[19992]?e.data[19992].o1:""}}</div>
+                        </label>
 
-                           <div class="btnx  btns " style=" font-size: 10px;"> <small>X</small>
-                               <div id="btncuota">{{e.data[19992].o2}}</div></div>
+                        <label class="btn btn-secondary btnx" style=" font-size: 10px;">
+                             <small>X</small>
+                            <input type="radio" name="options" id="option2" autocomplete="off">
+                             <div class="btncuota">{{e.data[19992]?e.data[19992].o2:""}}</div>
+                        </label>
 
-                          <div @click="botonactive" v-bind:class="[isActive ? activeClass2 : stopClass2]" style=" font-size: 10px;"> <small>2</small>
-                              <div id="btncuota">{{e.data[19992].o3}} </div></div> 
+                        <label class="btn btn-secondary btn2" style=" font-size: 10px;">
+                            <small>2</small>
+                            <input type="radio" name="options" id="option3" autocomplete="off">
+                            <div class="btncuota">{{e.data[19992]?e.data[19992].o3:""}} </div>
+                        </label>
+                    </div>                         
                            </div>   
                         </div>  
-      
-        
-         
-    
+                </ul>
+                </div>
+                </div>  
+                </div>   
+                 <!-- ==========================================1x2================================================== -->
 
+            <div class="panel-group">
+                <div class="panel-default">
+                    <div class="center panel-heading">
+                        <a class="nav-link active text-white" data-toggle="collapse" :href="'#collapse'+ index1">
+                        
+                        Doble Chance
+                          
+                        </a>
+                    </div>
+                    <div  :id="'collapse'+ index1" class="panel-collapse collapse">
+                   <ul class="list-group ">
+
+                       <div class="cabcontenedor">    
+                         
+                    <div class="cabcuotas">   
+                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary btn1" style=" font-size: 10px;">
+                            <small>1X</small>
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                             <div class="btncuota"> {{e.data[49992]?e.data[49992].o1:""}}</div>
+                        </label>
+
+                        <label class="btn btn-secondary btnx" style=" font-size: 10px;">
+                             <small>12</small>
+                            <input type="radio" name="options" id="option2" autocomplete="off">
+                             <div class="btncuota">{{e.data[49992]?e.data[49992].o2:""}}</div>
+                        </label>
+
+                        <label class="btn btn-secondary btn2" style=" font-size: 10px;">
+                            <small>2X</small>
+                            <input type="radio" name="options" id="option3" autocomplete="off">
+                            <div class="btncuota">{{e.data[49992]?e.data[49992].o3:""}} </div>
+                        </label>
+                    </div>                         
+                           </div>   
+                        </div>  
                 </ul>
                 </div>
                 </div>  
                 </div>   
 
-               
-                <div class="cabcontenedor">  
-                    <div class="cabcuotas">
-                      
-                          
-                     
-          
-                          <div class=" btn1 btns " style="font-size: 10px;">  <small>GG</small>
-                          <div id="btncuota"> {{e.data[19992].o1}}</div></div>
-
-                           <div class="btnx  btns  " style=" font-size: 10px;"> <small></small>
-                               <div id="btncuota"></div></div>
-
-                          <div class="btn2  btns " style=" font-size: 10px;"> <small>NG</small>
-                              <div id="btncuota"> </div>{{e.data[19992].o2}}</div>  
-                    
-                    
-                    </div>
-                    </div>   
-
-                                                                         
-                                           
+                <!-- ==========================================GGYNG================================================== -->
 
 
-                                        <!-- <th><small id="lig">{{e.name}}</small> </th>                                
-                                        <th><small id="fech">{{fecha(e.date)}}</small></th>
-                                        <th><small id="fech">{{hora(e.fulldate)}}</small></th> -->
-                                                                
-                                            <!-- <th scope="col" style="word-spacing: 10px; ">UN OV T</th>
-                                            <th scope="col" style="word-spacing: 11px; ">1X 12 2X</th>
-                                            <th scope="col" style="word-spacing: 5px; ">GG NG</th> -->
-                                            <!-- <th scope="col">OTHERS</th> -->
-
+            <div class="panel-group">
+                <div class="panel-default">
+                    <div class="center panel-heading">
+                        <a class="nav-link active text-white" data-toggle="collapse" :href="'#collapse'+index1">
                         
+                        GOL
+                          
+                        </a>
+                    </div>
+                    <div  :id="'collapse'+ index1" class="panel-collapse collapse">
+                   <ul class="list-group ">
+
+                       <div class="cabcontenedor">    
+                         
+                    <div class="cabcuotas">   
+                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary btn1" style=" font-size: 10px;">
+                            <small>GG</small>
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                             <div class="btncuota"> {{e.data[139992]?e.data[139992].o1:""}}</div>
+                        </label>
+
+                        <!-- <label class="btn btn-secondary btnx" style=" font-size: 10px;">
+                           
+                            <input type="radio" name="options" id="option2" autocomplete="off">
+                             <div class="btncuota"></div>
+                        </label> -->
+
+                        <label class="btn btn-secondary btn2" style=" font-size: 10px;">
+                            <small>NG</small>
+                            <input type="radio" name="options" id="option3" autocomplete="off">
+                            <div class="btncuota">{{e.data[139992]?e.data[139992].o2:""}} </div>
+                        </label>
+                    </div>                         
+                           </div>   
+                        </div>  
+                </ul>
+                </div>
+                </div>  
+                </div>   
+               
+                  
                             </div>
                         
                         </ul>
@@ -137,11 +200,7 @@ export default {
     return {
 
     //   mostrar:false,
-       isActive: true,
-       activeClass:'btn1 btns',
-       errorClass:'btnactive1 btns',
-       activeClass2:'btn2 btns',
-       stopClass2:'btnactive2 btns',
+      
 
        idmatch: [],
       
@@ -168,15 +227,13 @@ export default {
           return moment().startOf('').fromNow();
         //   moment(e).format('LT');   
       },
-    botonactive:function() {
-        this.isActive =!this.isActive 
-        
-    }
+    // botonactive:function(e) {
+    //     console.log(e);
+    //     e.target.classList.add("btnactive1");
+       
+    // }
      
-    //   c:function ( ){
-          
-    //     this.mostrar = !this.mostrar
-    //   },
+   
 
   }
 

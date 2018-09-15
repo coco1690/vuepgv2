@@ -1,19 +1,21 @@
 <template>
     <div id="tabla" style="margin-left: -5px;"  >
         <div class="table-responsive-xs " 
-            v-for="(idmatches,index, value) in idmatch" 
-            :key="idmatches, index, value"
+            v-for="(idmatches,index, val) in idmatch" 
+            :key="index"
+            :index="idmatches"
+            :val="val"
             >
             
             <div class="panel-group">
                 <div class="panel-default">
                     <div class="center panel-heading">
-                        <a class="nav-link active text-white" data-toggle="collapse" :href="'#collapse'+ value">
+                        <a class="nav-link active text-white" data-toggle="collapse" :href="'#collapse'+ val">
                         
                           {{idmatches.name}}   <i class="flecha fa fa-angle-down rotate-icon "></i>
                         </a>
                     </div>
-                    <div  :id="'collapse'+value" class="panel-collapse collapse">
+                    <div  :id="'collapse'+val" class="panel-collapse collapse">
                    <ul class="list-group ">
                                 <table class=" text-white table-hover col-sm-12 col-md-12 col-lg-12">
                                     <!-- <button @click="c">mostar/ocultar</button> -->
@@ -35,8 +37,9 @@
                         <tbody>
                         <tr  style=" width: 100%;"
                         v-if="idmatches.matches"
-                        v-for="(e,i) in idmatches.matches"
-                        :key="e,i">
+                        v-for="(e,index1) in idmatches.matches"
+                        :key="index1"
+                        :e="e">
                         
                                        <th>
                                         <td > 
